@@ -15,7 +15,7 @@ import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
-  imports: [ReactiveFormsModule, InputComponent,CurrencyPipe],
+  imports: [ReactiveFormsModule, InputComponent, CurrencyPipe],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css',
 })
@@ -24,8 +24,8 @@ export class CheckoutComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly cartService = inject(CartService);
   private readonly fb = inject(FormBuilder);
-    private readonly toastrService = inject(ToastrService);
-  
+  private readonly toastrService = inject(ToastrService);
+
   checkOutForm!: FormGroup;
 
   id: string | null = null;
@@ -72,7 +72,6 @@ export class CheckoutComponent implements OnInit {
 
   submitForm(): void {
     if (this.checkOutForm.valid) {
-
       this.cartService
         .checkOutSession(this.id, this.checkOutForm.value)
         .subscribe({
@@ -82,23 +81,28 @@ export class CheckoutComponent implements OnInit {
             }
           },
         });
+    } else {
+      this.checkOutForm.markAllAsTouched();
     }
   }
 
   submitFormCach(): void {
     if (this.checkOutForm.valid) {
-     
       this.cartService.CashOrder(this.id, this.checkOutForm.value).subscribe({
         next: (res) => {
           if (res.status == 'success') {
-          this.toastrService.success('Your cash order was placed successfully.');
-  
+            this.toastrService.success(
+              'Your cash order was placed successfully.'
+            );
+
             setTimeout(() => {
               this.router.navigate(['/allorders']);
             }, 500);
           }
         },
       });
+    } else {
+      this.checkOutForm.markAllAsTouched();
     }
   }
 }
