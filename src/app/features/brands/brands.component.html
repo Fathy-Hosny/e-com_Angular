@@ -1,0 +1,100 @@
+
+<section class="flex  bg-gray-200 flex-col py-4 items-center justify-center min-h-screen  p-4">
+
+  <h1 class="text-3xl md:text-4xl pt-20 text-gray-800 mb-2 text-shad">All Brand</h1>
+  <p class="text-xl md:text-2xl  text-gray-700 mb-10 text-shad">Choose what you need</p>
+
+
+
+ 
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl w-full">
+
+
+   @for (brand  of BrandsList | paginate: { id: 'foo',
+                                                      itemsPerPage: pageSize,
+                                                      currentPage: p,
+                                                      totalItems: total }; track brand._id) {
+    <div
+    (click)="openBrandDetails(brand)"
+  class="cursor-pointer  relative card bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col items-center"
+>
+  <img
+    [src]="brand.image"
+    [alt]="brand.name"
+    class="w-32 h-32 object-contain p-4"
+  />
+  <h3 class="text-lg font-semibold text-gray-800 mb-2">
+    {{ brand.name }}
+  </h3>
+</div>
+
+    
+   
+    }
+      </div>
+ 
+
+  <div class="pt-5 items-center ">
+<pagination-controls class="my-pagination"  id="foo"
+                      (pageChange)="  getAllBrandsData($event)"
+   ></pagination-controls> 
+  </div>
+             
+<div
+  *ngIf="selectedBrand"
+  class="fixed inset-0 bg-black/70  flex  justify-center z-50"
+  (click)="closeBrandDetails()"
+  
+>
+  <div
+    class="bg-white rounded-2xl  top-20 shadow-2xl p-6 w-[400px] h-[300px] relative flex transform transition-all duration-300"
+ 
+   [ngClass]="{
+      'translate-y-0 opacity-100': !animateClose,
+      '-translate-y-full opacity-0': animateClose
+    }"
+
+     (click)="$event.stopPropagation()"
+  >
+    <!-- Close Button -->
+    <button
+      (click)="closeBrandDetails()"
+      class="absolute cursor-pointer top-3  right-3 text-gray-600 hover:text-red-600 text-2xl"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+
+
+    <div class=" w-1/2 pl-6 flex flex-col  text-emerald-600 justify-center">
+      <h2 class="text-3xl font-bold    mb-3">
+        {{ selectedBrand.name }}
+      </h2>
+      <p class=""> {{ selectedBrand.slug }}</p>
+     
+    </div>
+        <div class="w-1/2 flex items-center  justify-start">
+      <img
+        [src]="selectedBrand.image"
+        [alt]="selectedBrand.name"
+        class="w-full h-full object-contain"
+      />
+    </div>
+
+
+  <button
+  (click)="closeBrandDetails()"
+  class="absolute bottom-5 right-5  cursor-pointer
+         bg-red-600 hover:bg-red-800
+         text-white font-semibold px-6 py-2 rounded-full 
+         shadow-lg
+         transition duration-300 ease-in-out"
+>
+  Close
+</button>
+    
+  </div>
+</div>
+
+
+</section>
+

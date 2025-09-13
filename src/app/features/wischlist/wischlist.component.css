@@ -1,0 +1,16 @@
+  @keyframes heart-jump {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-heart-jump {
+    animation: heart-jump 1s ease-in-out infinite; 
+  }
+
+
+
+

@@ -1,0 +1,36 @@
+
+<section class="flex  card flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
+
+  <h1 class="text-3xl md:text-4xl  text-gray-800 mb-2">Flash Sale</h1>
+  <p class="text-xl md:text-2xl  text-gray-700 mb-10">Grab Them Before They're Gone!</p>
+
+
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl w-full">
+    
+    @for (product of productList.slice(0, 4); track product._id) {
+    <app-card [product]="product" />
+   
+    }
+  </div>
+
+  @defer (on interaction) {
+     <div class="grid py-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl w-full">
+    
+    @for (product of productList.slice(4); track product._id) {
+    <app-card [product]="product" />
+    }
+  </div>
+  } @placeholder {
+    <button class="cursor-pointer mt-12 px-6 py-3 border  text-lg text-gray-700 hover:bg-mainColor hover:text-white rounded-4xl transition-all duration-700 shadow-2xl flex items-center">
+      See More
+   <i class="fa-solid text-2xl fa-angle-right"></i>
+    </button>
+  } @loading (minimum 1s) {
+  <div class="text-center my-5">
+    <i class="fa-solid fa-spinner fa-spin  text-black text-7xl"></i>
+  </div>
+  }
+  
+</section>
+

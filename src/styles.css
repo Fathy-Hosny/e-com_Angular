@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+@theme {
+  --color-mainColor: #8b5e35;
+}
+
+@font-face {
+  font-family: "fathy1";
+  src: url("/AbrilFatface-Regular.ttf");
+}
+
+body {
+  font-family: "fathy1";
+}
+@layer components {
+  .main-label {
+    @apply peer-focus:font-medium absolute text-lg text-gray-600  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6;
+  }
+
+  .main-input {
+    @apply block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-blue-600;
+  }
+
+  .main-button{
+    @apply cursor-pointer active:scale-98 relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-semibold rounded-lg text-white bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 active:outline-none active:ring-2 active:ring-offset-2 active:ring-blue-500 transform hover:-translate-y-1 transition duration-400 ease-in-out shadow-2xl hover:shadow-xl
+  }
+}
+
+.text-shad {
+  text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5,
+    -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5,
+    -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5,
+    -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
+}
+
+
+
+
+.text-shad-neon {
+  text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee, 2px 1px 1px #cccccc,
+    1px 2px 1px #eeeeee, 3px 2px 1px #cccccc, 2px 3px 1px #eeeeee,
+    4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc,
+    4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
+    7px 6px 1px #cccccc;
+}
+
+
+
+.shadow-all {
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

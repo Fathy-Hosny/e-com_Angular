@@ -1,0 +1,19 @@
+.text-shad-order {
+  text-shadow: 
+    0 1px 0px #15803d,   /* أخضر غامق */
+    1px 0 0px #22c55e,   /* أخضر متوسط */
+    1px 2px 1px #15803d,
+    2px 1px 1px #22c55e,
+    2px 3px 2px #15803d,
+    3px 2px 2px #22c55e,
+    3px 4px 2px #15803d,
+    4px 3px 3px #22c55e,
+    4px 5px 3px #15803d,
+    5px 4px 2px #22c55e,
+    5px 6px 2px #15803d,
+    6px 5px 2px #22c55e,
+    6px 7px 1px #15803d,
+    7px 6px 1px #22c55e,
+    7px 8px 0px #15803d,
+    8px 7px 0px #22c55e;
+}

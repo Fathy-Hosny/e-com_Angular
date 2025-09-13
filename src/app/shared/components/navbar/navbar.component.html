@@ -1,0 +1,199 @@
+<nav
+  #myNav
+  class="nav top-0 z-40 fixed w-full bg-gray-900 transition duration-[500ms] border-gray-200"
+>
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
+    <a class="flex items-center space-x-5 rtl:space-x-reverse">
+      <span routerLink="/home" class="text-mainColor cursor-pointer text-5xl"
+        >Trendfy</span
+      >
+    </a>
+
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="menu-btn active:scale-98 cursor-pointer md:opacity-0"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="icon">
+        <svg viewBox="0 0 175 80" width="40" height="40">
+          <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+
+          <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+
+          <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+        </svg>
+      </span>
+      <span class="label">MENU</span>
+    </button>
+
+    <div class="hidden w-full grow md:flex md:w-auto" id="navbar-default">
+      @if (islogin==true) {
+      <ul
+        class="font-medium flex flex-col text-l p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a
+            routerLink="/home"
+            routerLinkActive="text-mainColor "
+            class="transition-all duration-500 block py-2 px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+
+        <li>
+          <a
+            routerLink="/product"
+            routerLinkActive="text-mainColor"
+            class="transition-all duration-500 block py-2 px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+            >Products</a
+          >
+        </li>
+
+        <li>
+          <a
+            routerLink="/brands"
+            routerLinkActive="text-mainColor"
+            class="block py-2 px-3 transition-all duration-500 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+            >Brands</a
+          >
+        </li>
+
+        <li>
+          <a
+            routerLink="/contact"
+            routerLinkActive="text-mainColor "
+            class="block py-2 px-3 transition-all duration-500 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+            >Contact us</a
+          >
+        </li>
+      </ul>
+
+      <ul
+        class="ms-auto font-medium flex flex-col text-l p-4 md:p-0 mt-4 rounded-lg md:flex-row space-y-3 md:space-x-5 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li class="relative flex items-center group">
+          <a
+            routerLink="/allorders"
+            routerLinkActive="text-mainColor"
+            class="relative transition-all cursor-pointer duration-500 block px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+          >
+            <i class="fa-solid text-xl fa-basket-shopping"></i>
+
+            <span
+              class="absolute left-15 md:left-1/2 md:top-full mt-2 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-2 opacity-0 group-hover:opacity-100 md:group-hover:translate-y-0 bg-mainColor text-white text-sm font-semibold px-2 py-1 rounded-lg whitespace-nowrap transition-all duration-500"
+            >
+              All orders
+            </span>
+          </a>
+        </li>
+        <li class="relative flex items-center group">
+          <a
+            routerLink="/cart"
+            routerLinkActive="text-mainColor"
+            class="relative transition-all cursor-pointer duration-500 block px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+          >
+            <i class="fa-solid text-xl fa-cart-shopping"></i>
+            <span
+              class="absolute bg-mainColor text-white text-[8px] px-1 rounded-full -top-1 -right-1 leading-none flex items-center justify-center min-w-[16px] h-[16px]"
+            >
+          {{count}}
+          
+          </span>
+
+            <span
+              class="absolute  left-15 md:left-1/2 md:top-full mt-2 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-2 opacity-0 group-hover:opacity-100 md:group-hover:translate-y-0 bg-mainColor text-white text-sm font-semibold px-2 py-1 rounded-lg whitespace-nowrap transition-all duration-500"
+            >
+              Cart
+            </span>
+          </a>
+        </li>
+        <li class="relative flex items-center group">
+          <a
+            routerLink="/wischlist"
+            routerLinkActive="text-mainColor"
+            class="relative transition-all cursor-pointer duration-500 block px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+          >
+            <i class="fa-solid text-xl fa-heart"></i>
+
+            <span
+              class="absolute left-15 md:left-1/2 md:top-full mt-2 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-2 opacity-0 group-hover:opacity-100 md:group-hover:translate-y-0 bg-mainColor text-white text-sm font-semibold px-2 py-1 rounded-lg whitespace-nowrap transition-all duration-500"
+            >
+              wish list
+            </span>
+          </a>
+        </li>
+        <li class="relative flex items-center group">
+          <a
+            routerLink="/user"
+            routerLinkActive="text-mainColor"
+            class="transition-all cursor-pointer duration-500 block px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+          >
+            <i class="fa-solid text-xl fa-user"></i>
+
+            <span
+              class="absolute left-15 md:left-1/2 md:top-full mt-2 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-2 opacity-0 group-hover:opacity-100 md:group-hover:translate-y-0 bg-mainColor text-white text-sm font-semibold px-2 py-1 rounded-lg whitespace-nowrap transition-all duration-500"
+            >
+              User
+            </span>
+          </a>
+        </li>
+
+        <li class="">
+          <button
+            (click)="signOut()"
+            class="transition-all cursor-pointer active:scale-98 duration-500 flex items-center py-2 px-3 text-gray-200 hover:text-red-700 rounded-sm md:p-0 group"
+          >
+            <i class="fa-solid text-lg fa-right-from-bracket"></i>
+            <span
+              class="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-500"
+            >
+              Logout @if(isLoding){
+
+              <span
+                ><i class="fa-solid animate-spin text-white fa-spinner"></i
+              ></span>
+              }
+            </span>
+          </button>
+        </li>
+      </ul>
+      } @if (islogin==false) {
+      <ul
+        class="ms-auto justify-between font-medium flex flex-col text-lg p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-5 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a
+            routerLink="/login"
+            routerLinkActive="text-mainColor "
+            class="transition-all duration-500 block py-2 px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+            >Login</a
+          >
+        </li>
+
+        <li>
+          <a
+            routerLink="/register"
+            routerLinkActive="text-mainColor "
+            class="transition-all duration-500 block px-3 text-gray-200 hover:text-mainColor rounded-sm md:p-0"
+            aria-current="page"
+            >Register</a
+          >
+        </li>
+      </ul>
+      }
+    </div>
+  </div>
+</nav>
