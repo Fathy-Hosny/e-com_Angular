@@ -10,7 +10,7 @@ import { loadingInterceptor } from './core/interceptors/loading-interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { headersInterceptor } from './core/interceptors/headers-interceptor';
 import { errorsInterceptor } from './core/interceptors/errors-interceptor';
-
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch(),withInterceptors([headersInterceptor,errorsInterceptor,loadingInterceptor])),
     provideAnimations(),provideToastr(),
-    importProvidersFrom(CookieService,NgxSpinnerModule )
+    importProvidersFrom(CookieService,NgxSpinnerModule ), { provide: LocationStrategy, useClass: HashLocationStrategy } 
   ]
 };
 
