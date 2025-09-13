@@ -9,7 +9,7 @@ import { environment } from '../../../../environments/environment.development';
 export class CartService {
   private readonly httpClient = inject(HttpClient);
 
-  countNumber: BehaviorSubject<number> = new BehaviorSubject( 0 );
+  countNumber: BehaviorSubject<number> = new BehaviorSubject(0);
 
   addProductToCart(id: string): Observable<any> {
     return this.httpClient.post(environment.baseUrl + `cart`, {
