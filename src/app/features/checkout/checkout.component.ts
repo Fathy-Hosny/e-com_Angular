@@ -9,12 +9,13 @@ import { InputComponent } from '../../shared/components/input/input.component';
 import { Cart } from '../cart/models/cart.interface';
 import { CartService } from '../cart/service/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CurrencyPipe } from '@angular/common';
+
 import { ToastrService } from 'ngx-toastr';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
-  imports: [ReactiveFormsModule, InputComponent, CurrencyPipe],
+  imports: [ReactiveFormsModule, InputComponent,CurrencyPipe],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css',
 })

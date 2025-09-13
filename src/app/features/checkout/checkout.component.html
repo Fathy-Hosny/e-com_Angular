@@ -42,10 +42,10 @@
         Your order details would go here.
         <div class="flex flex-col sm:flex-row gap-4 mt-2">
           <span>Item:</span>
-          <span class="font-bold">{{ cartDetails.products?.length || 0 }}</span>
+          <span class="font-bold">{{ cartDetails.products?.length }}</span>
           <span>Total Price:</span>
           <span class="font-bold">{{
-            cartDetails?.totalCartPrice || 0 | currency : "GBP"
+            cartDetails?.totalCartPrice | currency : "GBP"
           }}</span>
         </div>
       </div>
