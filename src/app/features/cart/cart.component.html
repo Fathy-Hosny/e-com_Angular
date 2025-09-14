@@ -12,14 +12,22 @@
 
     @for (item of cartDetails.products; track item.product._id) {
     <div
+     
       class="flex flex-col md:flex-row items-center border-b border-gray-200 py-4"
     >
       <img
+
+       [routerLink]="['/details', item.product._id]"
         [src]="item.product.imageCover"
         [alt]="item.product.title"
-        class="w-20 h-20 object-cover rounded mb-4 md:mb-0 md:mr-4"
+        class="w-20 h-20 object-cover cursor-pointer rounded mb-4 md:mb-0 md:mr-4"
       />
-      <div class="flex-grow mb-4 md:mb-0">
+      <div
+
+       [routerLink]="['/details', item.product._id]"
+      
+      
+      class="flex-grow cursor-pointer mb-4 md:mb-0">
         <p class="font-semibold text-xl md:text-2xl">
           {{ item.product.title | term : 3 }}
         </p>

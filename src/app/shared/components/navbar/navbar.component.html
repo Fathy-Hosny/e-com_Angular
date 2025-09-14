@@ -1,13 +1,15 @@
 <nav
   #myNav
-  class="nav top-0 z-40 fixed w-full bg-gray-900 transition duration-[500ms] border-gray-200"
+  class="top-0 z-40 fixed w-full bg-gra transition duration-[500ms] border-gray-200"
 >
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
     <a class="flex items-center space-x-5 rtl:space-x-reverse">
-      <span routerLink="/home" class="text-mainColor cursor-pointer text-5xl"
-        >Trendfy</span
+      <span
+        routerLink="/home"
+        class="text-mainColor nav cursor-pointer text-6xl"
+        >FathyShop</span
       >
     </a>
 
@@ -33,7 +35,7 @@
     <div class="hidden w-full grow md:flex md:w-auto" id="navbar-default">
       @if (islogin==true) {
       <ul
-        class="font-medium flex flex-col text-l p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
+        class="font-medium flex flex-col text-xl p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
       >
         <li>
           <a
@@ -104,14 +106,13 @@
           >
             <i class="fa-solid text-xl fa-cart-shopping"></i>
             <span
-              class="absolute bg-mainColor text-white text-[8px] px-1 rounded-full -top-1 -right-1 leading-none flex items-center justify-center min-w-[16px] h-[16px]"
+              class="absolute bg-mainColor text-white text-[10px] px-1 rounded-full -top-1 -right-1 leading-none flex items-center justify-center min-w-[16px] h-[16px]"
             >
-          {{count}}
-          
-          </span>
+              {{ count }}
+            </span>
 
             <span
-              class="absolute  left-15 md:left-1/2 md:top-full mt-2 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-2 opacity-0 group-hover:opacity-100 md:group-hover:translate-y-0 bg-mainColor text-white text-sm font-semibold px-2 py-1 rounded-lg whitespace-nowrap transition-all duration-500"
+              class="absolute left-15 md:left-1/2 md:top-full mt-2 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-2 opacity-0 group-hover:opacity-100 md:group-hover:translate-y-0 bg-mainColor text-white text-sm font-semibold px-2 py-1 rounded-lg whitespace-nowrap transition-all duration-500"
             >
               Cart
             </span>

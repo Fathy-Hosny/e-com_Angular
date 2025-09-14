@@ -6,16 +6,19 @@ transition: all 1s;
 
 @font-face {
   font-family: 'Cairo';
-  src: url('/fonts/Playwrite_HU/PlaywriteHU-VariableFont_wght.ttf') ;
+  src: url('/fonts/My_Soul/MySoul-Regular.ttf') ;
 }
 
 .nav {
   font-family: 'Cairo', sans-serif;
 
-
 }
 
+.bg-gra{
 
+  
+background:#111827f7 ;
+}
 .activeSearch {
   width: 150px;
   opacity: 1;

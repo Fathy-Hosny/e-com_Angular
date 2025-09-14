@@ -1,5 +1,5 @@
 <section class="container details items-center mx-auto md:p-8">
-  <div class="grid py-14 grid-cols-1 md:grid-cols-2 gap-8 items-start">
+  <div class="grid py-14 grid-cols-1 mt-10 md:grid-cols-2 gap-8 items-start">
     <div class="flex flex-col md:flex-row gap-8 items-start">
       <div
         class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto py-10 md:py-1 md:overflow-y-auto"
@@ -27,10 +27,16 @@
       </div>
     </div>
     <div class="flex flex-col space-y-4">
-      <h1 *ngIf="productDetails" class="text-3xl md:text-4xl font-bold text-gray-900">
+      <h1
+        *ngIf="productDetails"
+        class="text-3xl md:text-4xl font-bold text-gray-900"
+      >
         {{ productDetails.title }}
       </h1>
-      <div *ngIf="productDetails?.category && productDetails?.brand"  class="flex items-center space-x-2 text-gray-600">
+      <div
+        *ngIf="productDetails?.category && productDetails?.brand"
+        class="flex items-center space-x-2 text-gray-600"
+      >
         <span class="text-xl font-semibold"
           >Category Name: {{ productDetails.category.name }}</span
         >
@@ -64,7 +70,7 @@
           >{{ productDetails.price }} EGP</span
         >
         <button
-      (click)="addProductsItemToCart(productDetails._id)"
+          (click)="addProductsItemToCart(productDetails._id)"
           class="bg-mainColor active:scale-98 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-colors duration-700 hover:bg-amber-900"
         >
           <i class="fa-solid fa-cart-plus cursor-pointer text-xl"></i>
@@ -76,9 +82,7 @@
 </section>
 @if (!flag) {
 <div
-  class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4
-         transition-opacity duration-300"
-
+  class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 transition-opacity duration-300"
   (click)="hideModel()"
 >
   <div

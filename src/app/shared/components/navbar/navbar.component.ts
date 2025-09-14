@@ -15,6 +15,7 @@ import { initFlowbite } from 'flowbite';
 import { AuthService } from '../../../core/auth/services/auth.service';
 import { CartService } from '../../../features/cart/service/cart.service';
 import { isPlatformBrowser } from '@angular/common';
+import { WischlistService } from '../../../features/wischlist/services/wischlist.service';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +27,15 @@ import { isPlatformBrowser } from '@angular/common';
 export class NavbarComponent implements OnInit {
   constructor(private flowbiteService: FlowbiteService) {}
   private readonly cartService = inject(CartService);
+  private readonly wischlistService = inject(WischlistService);
   private readonly id = inject(PLATFORM_ID);
+  private readonly authService = inject(AuthService);
+
+  @Input({ required: true }) islogin!: boolean;
+
+  scroll: boolean = false;
+
+  isLoding: boolean = false;
   count!: number;
 
   ngOnInit(): void {
@@ -36,7 +45,7 @@ export class NavbarComponent implements OnInit {
 
     this.getCardNumber();
     if (isPlatformBrowser(this.id)) {
-      this.getAllCardNumber()
+      this.getAllCardNumber();
     }
   }
 
@@ -48,23 +57,14 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-
-    getAllCardNumber(): void {
+  getAllCardNumber(): void {
     this.cartService.getloggedUserCart().subscribe({
       next: (res) => {
- this.cartService.countNumber.next(res.numOfCartItems)
-       
+        this.cartService.countNumber.next(res.numOfCartItems);
       },
     });
   }
 
-  private readonly authService = inject(AuthService);
-
-  @Input({ required: true }) islogin!: boolean;
-
-  scroll: boolean = false;
-
-  isLoding: boolean = false;
   @ViewChild('myNav') myNav!: ElementRef;
   @HostListener('window:scroll')
   onscroll(): void {

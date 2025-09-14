@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
         ],
         phone: [
           null,
-          [Validators.required, Validators.pattern(/^01[125][0-9]{8}$/)],
+          [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)],
         ],
       },
       { validators: this.conFirmpassword }

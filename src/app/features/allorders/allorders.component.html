@@ -1,9 +1,9 @@
 <section class="container mx-auto mt-20 p-4 md:p-8 bg-gray-50 min-h-screen">
-   <i class="fas fa-box-open mr-2 text-3xl  md:text-4xl  text-emerald-600"></i> 
+  <i class="fas fa-box-open mr-2 text-3xl md:text-4xl text-emerald-600"></i>
   <h2
     class="text-3xl text-shad-order md:text-4xl font-extrabold text-gray-900 mb-6 border-b-4 border-emerald-500 pb-2 inline-block"
   >
-   All Orders
+    All Orders
   </h2>
 
   @if (ordersList.length === 0) {
@@ -24,8 +24,15 @@
         class="font-bold text-xl text-gray-800 flex items-center mb-2 md:mb-0"
       >
         <i class="fas fa-receipt mr-3 text-emerald-500"></i>
-        Order #<span class="text-emerald-600 font-mono">{{ order._id }}</span>
+        Order #
+        <span
+          class="text-emerald-600 cursor-pointer font-mono"
+          (click)="showFullId = !showFullId"
+        >
+          {{ showFullId ? order._id : (order._id | slice : 0 : 8) + "..." }}
+        </span>
       </h3>
+
       <span class="text-sm text-gray-500 font-medium">
         <i class="fas fa-clock mr-1"></i>
         Created At: {{ order.createdAt | date : "short" }}
@@ -34,7 +41,6 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
       <div class="bg-gray-100 p-3 rounded-lg flex items-center">
-
         <i class="fa-solid fa-sterling-sign text-emerald-600 mr-3 text-lg"></i>
         <div>
           <p class="text-sm text-gray-500">Total Price:</p>
@@ -44,15 +50,12 @@
         </div>
       </div>
       <div class="bg-gray-100 p-3 rounded-lg flex items-center">
+        @if (order.paymentMethodType=="card") {
+        <i class="fas fa-credit-card text-emerald-600 mr-3 text-lg"></i>
+        } @else if (order.paymentMethodType=="cash") {
 
-        
-      @if (order.paymentMethodType=="card") {
-          <i class="fas fa-credit-card text-emerald-600 mr-3 text-lg"></i>
-      }
-        @else if (order.paymentMethodType=="cash") {
-        
-          <i class="fa-solid fa-wallet text-emerald-600 mr-3 text-lg"></i>
-      }
+        <i class="fa-solid fa-wallet text-emerald-600 mr-3 text-lg"></i>
+        }
         <div>
           <p class="text-sm text-gray-500">Payment Method:</p>
           <p class="font-semibold text-gray-900">
@@ -105,10 +108,9 @@
           >
         </div>
         <div class="text-right">
-          <span class="text-gray-900 font-bold">{{
-            item.price * item.count | currency : "GBP"
-          }} EGP</span>
-         
+          <span class="text-gray-900 font-bold"
+            >{{ item.price * item.count | currency : "GBP" }} EGP</span
+          >
         </div>
       </li>
       }

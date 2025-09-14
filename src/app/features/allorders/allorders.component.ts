@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { AuthService } from '../../core/auth/services/auth.service';
 import { AllordersService } from './services/allorders.service';
 import { Allorders } from './models/allorders.interface';
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-allorders',
-  imports: [DatePipe, CurrencyPipe],
+  imports: [DatePipe, CurrencyPipe,SlicePipe],
   templateUrl: './allorders.component.html',
   styleUrl: './allorders.component.css',
 })
@@ -15,7 +15,7 @@ export class AllordersComponent {
   private readonly allOrdersService = inject(AllordersService);
 
   userId: string | null = null;
-
+showFullId:boolean=false
   ordersList: Allorders[] = [];
 
   ngOnInit(): void {

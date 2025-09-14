@@ -37,7 +37,7 @@ export class WischlistComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching wishlist data:', err);
-        // يمكنك هنا عرض رسالة خطأ للمستخدم
+  
       },
     });
   }
